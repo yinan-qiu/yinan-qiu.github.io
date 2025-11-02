@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <title>Yinan Qiu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Job market website for Yinan Qiu, Ph.D. candidate in Economics at Princeton University. Research: Entrepreneurial Finance, Innovation, International Economics." />
+    <meta name="description" content="Job market website for Yinan Qiu, Ph.D. candidate in Economics at Princeton University. Research: Corporate Finance, Entrepreneurial Finance, Innovation, and International Economics." />
     <style>
       :root{
-        --bg:#f7f7f7;
+        --bg:#f3f4f6;
         --paper:#ffffff;
         --ink:#0b0c0e;
         --muted:#6a6d73;
@@ -19,52 +19,98 @@
         font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
         background:var(--bg);
         color:var(--ink);
-        line-height:1.5;
+        line-height:1.55;
+      }
+      header.site{
+        position:sticky;
+        top:0;
+        background:#fff;
+        z-index:10;
+        border-bottom:1px solid #ececec;
+      }
+      .topbar{
+        max-width:1040px;
+        margin:0 auto;
+        padding:12px 16px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+      }
+      .brand{
+        font-weight:700;
+        letter-spacing:0.01em;
+      }
+      nav a{
+        margin-left:18px;
+        text-decoration:none;
+        color:#444;
+        font-weight:500;
+      }
+      nav a.active{
+        color:var(--accent);
       }
       main{
-        max-width:1000px;
+        max-width:1080px;
         margin:0 auto;
-        padding:32px 16px 64px;
+        padding:28px 16px 64px;
+        min-height:80vh;
       }
-      header.top{
-        text-align:center;
-        margin-bottom:28px;
-      }
-      header.top h1{
-        font-size:30px;
-        margin:0 0 4px;
-      }
-      .hero{
+      .hero-card{
+        background:#fff;
+        border-radius:22px;
+        padding:32px 34px 34px;
         display:grid;
-        grid-template-columns:260px 1fr;
-        gap:26px;
-        align-items:flex-start;
-        margin-bottom:32px;
+        grid-template-columns:280px 1fr;
+        gap:34px;
+        align-items:center;
+        box-shadow:0 18px 40px rgba(15,23,42,0.04);
       }
       .headshot{
         width:100%;
-        border-radius:18px;
+        border-radius:20px;
         display:block;
-        background:#ddd;
       }
-      .hero .lead{font-size:20px;margin-bottom:18px;}
-      .hero .focus{margin:0 0 2px;font-size:18px;}
-      .hero .fields{margin:2px 0 12px;font-size:18px;}
-      .hero .market{margin-top:14px;font-size:18px;}
-      .hero .cv-email{margin-top:10px;font-size:18px;}
-      .hero .contact{color:var(--muted);margin-top:6px;font-size:18px;}
+      .home-name{
+        font-size:42px;
+        font-weight:700;
+        margin:0 0 14px;
+      }
+      .intro-title{
+        font-size:21px;
+        margin:0 0 16px;
+      }
+      .focus{
+        margin:0 0 6px;
+        font-size:19px;
+      }
+      .fields{
+        margin:0 0 16px;
+        font-size:19.5px;
+      }
+      .market{
+        margin:0 0 20px;
+        font-size:19px;
+      }
+      .cv-link{
+        margin:0 0 12px;
+        font-size:18px;
+      }
+      .contact{
+        color:var(--muted);
+        font-size:18px;
+      }
       h2.section-title{
         font-size:22px;
-        margin:30px 0 14px;
+        margin:32px 0 14px;
         border-bottom:2px solid #eaeaea;
         padding-bottom:6px;
       }
       .group-title{
         font-size:18px;
-        margin:24px 0 12px;
+        margin:22px 0 12px;
       }
       article.paper{
-        background:var(--paper);
+        background:#fff;
         border:1px solid #ececec;
         border-radius:12px;
         padding:16px 18px 14px;
@@ -85,75 +131,111 @@
         color:var(--muted);
         margin:0 0 10px;
       }
-      .abs-label{
-        margin:8px 0 2px;
-        font-size:14.5px;
-      }
-      .abs-label strong{
-        letter-spacing:0.02em;
-      }
-      a{
-        color:var(--accent);
-      }
-      @media(max-width:820px){
-        .hero{
-          grid-template-columns:1fr;
-        }
-        .hero .lead{font-size:18px;}
-        .hero .focus,.hero .fields,.hero .market,.hero .cv-email,.hero .contact{font-size:17px;}
+      .abs-label{margin:8px 0 2px;}
+      a{color:var(--accent);}
+      .section{display:none;}
+      .section.active{display:block;}
+      @media(max-width:860px){
+        .hero-card{grid-template-columns:1fr;}
+        .home-name{font-size:36px;}
       }
     </style>
   </head>
   <body>
-    <main>
-      <header class="top">
-        <h1>Yinan Qiu</h1>
-      </header>
+    <header class="site">
+      <div class="topbar">
+        <div class="brand">Yinan Qiu</div>
+        <nav>
+          <a href="#" data-section="home" class="active">Home</a>
+          <a href="#" data-section="cv">CV</a>
+          <a href="#" data-section="research">Research</a>
+          <a href="#" data-section="policy">Policy Work</a>
+        </nav>
+      </div>
+    </header>
 
-      <section class="hero">
-        <div>
-          <img class="headshot" src="img/profile photo.jpg" alt="Headshot of Yinan Qiu" />
-        </div>
-        <div>
-          <p class="lead">I am a Ph.D. candidate in Economics at Princeton University.</p>
-          <p class="focus">My research focuses on</p>
-          <p class="fields"><strong>Entrepreneurial Finance</strong>, <strong>Innovation</strong>, <strong>International Economics</strong>.</p>
-          <p class="market">I am on the academic job market in 2025–26.</p>
-          <p class="cv-email"><a href="files/CV_YinanQiu.pdf">CV</a></p>
-          <p class="contact">Email: yinanq[at]princeton.edu</p>
+    <main>
+      <!-- HOME -->
+      <section id="home" class="section active">
+        <div class="hero-card">
+          <div>
+            <img class="headshot" src="img/profile photo.jpg" alt="Headshot of Yinan Qiu" />
+          </div>
+          <div>
+            <h1 class="home-name">Yinan Qiu</h1>
+            <p class="intro-title">I am a Ph.D. candidate in Economics at Princeton University.</p>
+            <p class="focus">My research focuses on</p>
+            <p class="fields"><strong>Corporate Finance</strong>, <strong>Entrepreneurial Finance</strong>, <strong>Innovation</strong>, and <strong>International Economics</strong>.</p>
+            <p class="market">I am on the academic job market in 2025–26.</p>
+            <p class="cv-link"><a href="files/CV_YinanQiu.pdf">CV</a></p>
+            <p class="contact">Email: yinanq[at]princeton.edu</p>
+          </div>
         </div>
       </section>
 
-      <h2 class="section-title">Research</h2>
+      <!-- CV -->
+      <section id="cv" class="section">
+        <h2 class="section-title">CV</h2>
+        <p><a href="files/CV_YinanQiu.pdf">Download CV (PDF)</a></p>
+      </section>
 
-      <!-- Job Market Paper -->
-      <h3 class="group-title">Job Market Paper</h3>
-      <article class="paper" id="jmp">
-        <h3><a href="files/JMP_Qiu.pdf">Venture Capital Networks and Cross-Border Startup Knowledge Spillovers</a></h3>
-        <p class="meta"><a href="files/JMP_Qiu.pdf">PDF</a> · Last updated: Oct&nbsp;2025</p>
-        <p class="abs-label"><strong>Abstract</strong></p>
-        <p>Venture capital (VC) networks facilitate reverse knowledge spillovers from U.S. investments in foreign startups back to the United States. Using the first U.S. VC deal in a foreign company as a quasi-exogenous shock in a difference-in-differences design, I show that investees’ pre-existing patents become 18% more likely to be cited by U.S. entities, with no corresponding change in citations from other countries. Spillovers are concentrated among U.S. startups most closely connected to the investing VC through its network of prior syndication ties, while geographically proximate firms show no such effects. A similar design applied to domestic coast-to-coast VC deals confirms that the network channel is especially salient in cross-border settings. These knowledge flows translate into real outcomes: patent output rises by 10% overall and 22% in investee-related technologies; high-quality innovation increases by 10% overall and 34% in related technologies. Closely connected firms are also more likely to achieve successful exits through IPO or acquisition. The findings indicate that VCs transmit knowledge across borders through their syndication networks, enhancing innovation and performance beyond their direct portfolios.</p>
-      </article>
+      <!-- RESEARCH -->
+      <section id="research" class="section">
+        <h2 class="section-title">Research</h2>
 
-      <!-- Working Papers -->
-      <h3 class="group-title">Working Papers</h3>
-      <article class="paper" id="wp1">
-        <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5279969">Familiarity in International Fund Allocation and Performance: Information or Bias</a></h3>
-        <p class="meta">with Zheyuan (Kevin) Cui · <a href="files/International%20Equity.pdf">PDF</a> · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5279969">SSRN</a></p>
-        <p class="abs-label"><strong>Abstract</strong></p>
-        <p>This paper examines the extent to which informational advantages and familiarity-driven biases coexist in international equity fund investments, using managers’ countries of education as a proxy for familiarity. Using holdings of U.S.-based international funds from 2000–2024, we show that funds over-allocate to equities from their manager education countries, despite no abnormal country-level returns. At the equity level, we find that only the most confident positions in familiar markets generate significant excess returns, earning an annual alpha of 5.31%, while the remaining holdings track the benchmark returns. These outperforming positions are idiosyncratic, persist over time, but account for only one-quarter of education-country holdings. This pattern indicates that familiarity provides a private and durable informational edge, but only in a narrow set of high-conviction bets, while broader overweights reflect familiarity bias. Overall, our results highlight familiarity as both a source of private information and a driver of bias in global portfolio allocation.</p>
-      </article>
+        <h3 class="group-title">Job Market Paper</h3>
+        <article class="paper" id="jmp">
+          <h3><a href="files/JMP_Qiu.pdf">Venture Capital Networks and Cross-Border Startup Knowledge Spillovers</a></h3>
+          <p class="meta"><a href="files/JMP_Qiu.pdf">PDF</a> · Last updated: Oct&nbsp;2025</p>
+          <p class="abs-label"><strong>Abstract</strong></p>
+          <p>Venture capital (VC) networks facilitate reverse knowledge spillovers from U.S. investments in foreign startups back to the United States. Using the first U.S. VC deal in a foreign company as a quasi-exogenous shock in a difference-in-differences design, I show that investees’ pre-existing patents become 18% more likely to be cited by U.S. entities, with no corresponding change in citations from other countries. Spillovers are concentrated among U.S. startups most closely connected to the investing VC through its network of prior syndication ties, while geographically proximate firms show no such effects. A similar design applied to domestic coast-to-coast VC deals confirms that the network channel is especially salient in cross-border settings. These knowledge flows translate into real outcomes: patent output rises by 10% overall and 22% in investee-related technologies; high-quality innovation increases by 10% overall and 34% in related technologies. Closely connected firms are also more likely to achieve successful exits through IPO or acquisition. The findings indicate that VCs transmit knowledge across borders through their syndication networks, enhancing innovation and performance beyond their direct portfolios.</p>
+        </article>
 
-      <!-- Work in Progress -->
-      <h3 class="group-title">Work in Progress</h3>
-      <article class="paper" id="wp2">
-        <h3>In or Out? How the Inclusion of Currencies on a Payment Platform Impacts Multinational Firms</h3>
-        <p class="meta">with Tommaso Mancini-Griffoli · <a href="files/platform_slides.pdf">Slides</a></p>
-        <p class="meta">Policy contribution: <a href="files/G20 note.pdf">G20 Note on Financial Platforms (IMF report)</a></p>
-        <p class="abs-label"><strong>Abstract</strong></p>
-        <p>We study how expansions of cross-border payment platforms affect incumbent multinationals. Our setting is the 2015 inclusion of the Hungarian forint (HUF) in the Continuous Linked Settlement (CLS) system: a shock that lowers HUF foreign exchange settlement risk and transaction costs, but can also facilitate entry by non-domestic firms and intensify competition in Hungary. Using a stock-market event study linked to Orbis subsidiary data on U.S. public multinationals, we find that firms with greater exposure to Hungary experienced more negative announcement-window abnormal returns. Specifically, a one percentage point in a firm’s Hungarian subsidiary share is associated with an 18 basis points decline in firm value. The effect is weaker in high-markup industries, consistent with lower entry threats where incumbents have greater market power. Overall, the net impact of cross-border payment infrastructure depends on market structure: while CLS expansion reduces transaction frictions, incumbent valuations decline when the competitive forces it triggers outweigh the direct cost savings.</p>
-      </article>
+        <h3 class="group-title">Working Papers</h3>
+        <article class="paper" id="wp1">
+          <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5279969">Familiarity in International Fund Allocation and Performance: Information or Bias</a></h3>
+          <p class="meta">with Zheyuan (Kevin) Cui · <a href="files/International%20Equity.pdf">PDF</a> · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5279969">SSRN</a></p>
+          <p class="abs-label"><strong>Abstract</strong></p>
+          <p>This paper finds that familiarity can generate both informational advantages and biases in international equity investments. Using a dataset we construct on managers’ countries of education as a proxy for familiarity, together with detailed holdings of U.S.-based international funds from 2000–2024, we find that funds over-allocate to equities from their managers’ education countries despite no abnormal country-level returns. At the equity level, we find that only the most confident equity positions in familiar markets generate significant excess returns, earning an annual alpha of 5.31%, while the remaining holdings track the benchmark returns. The outperformance persists over time but these positions account for only one-quarter of education-country holdings. This pattern indicates that familiarity provides a persistent informational edge, but only in a narrow set of most confident positions, while broader overweights reflect familiarity bias. Overall, our results highlight familiarity as both a source of private information and a driver of bias in global portfolio allocation.</p>
+        </article>
 
+        <h3 class="group-title">Work in Progress</h3>
+        <article class="paper" id="wp2">
+          <h3>In or Out? How the Inclusion of Currencies on a Payment Platform Impacts Multinational Firms</h3>
+          <p class="meta">with Tommaso Mancini-Griffoli · <a href="files/platform_slides.pdf">Slides</a></p>
+          <p class="abs-label"><strong>Abstract</strong></p>
+          <p>Research on the market impact of cross-border financial platforms remains at an early stage, and platform design and usage continue to evolve. This paper contributes to that agenda by examining how adding a currency to a cross-border payment platform affects multinational firms, and by offering evidence that can inform platform design and regulatory policy. We study how expansions of cross-border payment platforms affect incumbent multinationals. Our setting is the 2015 inclusion of the Hungarian forint (HUF) in the Continuous Linked Settlement (CLS) system: a shock that lowers HUF foreign exchange settlement risk and transaction costs, but can also facilitate entry by non-domestic firms and intensify competition in Hungary. Using a stock-market event study linked to Orbis subsidiary data on U.S. public multinationals, we find that firms with greater exposure to Hungary experienced more negative announcement-window abnormal returns. Specifically, a one percentage point in a firm’s Hungarian subsidiary share is associated with an 18 basis points decline in firm value. The effect is weaker in high-markup industries, consistent with lower entry threats where incumbents have greater market power. Overall, the net impact of cross-border payment infrastructure depends on market structure: while CLS expansion reduces transaction frictions, incumbent valuations decline when the competitive forces it triggers outweigh the direct cost savings.</p>
+        </article>
+      </section>
+
+      <!-- POLICY WORK -->
+      <section id="policy" class="section">
+        <h2 class="section-title">Policy Work</h2>
+        <p><strong>G20 Note on Financial Platforms: What are they and what are their Macro-Financial Implications (IMF report)</strong> — <a href="files/G20 note.pdf">Link to report</a></p>
+      </section>
     </main>
+
+    <script>
+      const links = document.querySelectorAll('nav a');
+      const sections = document.querySelectorAll('.section');
+
+      links.forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const target = link.getAttribute('data-section');
+
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+
+          sections.forEach(sec => {
+            if (sec.id === target) {
+              sec.classList.add('active');
+            } else {
+              sec.classList.remove('active');
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
